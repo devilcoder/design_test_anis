@@ -27,6 +27,8 @@ public class RouteActivity extends Activity implements OnClickListener
 	@Override
     protected void onCreate(Bundle savedInstanceState)
 	{ 
+		// TODO: must substitute this code with buttons on the layout
+		
 		super.onCreate(savedInstanceState); 
 	//	setContentView(R.layout.route);
 	//	setContentView(R.layout.route);

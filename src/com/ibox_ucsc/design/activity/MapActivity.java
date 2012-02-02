@@ -40,8 +40,8 @@ public class MapActivity extends Activity implements SensorEventListener
 	private WifiReceiver mWifiReceiver;
 	private DeviceWriter out;
 	private long timezero = 0;
-	@Override
 	
+	@Override
 	public void onCreate(Bundle savedInstanceState) 
 	{ 
 		super.onCreate(savedInstanceState);
@@ -53,8 +53,8 @@ public class MapActivity extends Activity implements SensorEventListener
 		mWifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 		mWifiReceiver = new WifiReceiver();
 	}
-	@Override
 	
+	@Override	
 	public void onPause() 
 	{ 
 		super.onPause();

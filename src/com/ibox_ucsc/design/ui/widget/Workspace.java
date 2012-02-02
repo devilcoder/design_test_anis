@@ -137,10 +137,10 @@ public class Workspace extends ViewGroup {
     }
 
     /**
-     * Used to inflate the com.google.android.ext.workspace.Workspace from XML.
+     * Used to inflate the com.ibox_ucsc.design.ext.workspace.Workspace from XML.
      *
      * @param context The application's context.
-     * @param attrs   The attributes set containing the com.google.android.ext.workspace.Workspace's
+     * @param attrs   The attributes set containing the com.ibox_ucsc.design.ext.workspace.Workspace's
      *                customization values.
      */
     public Workspace(Context context, AttributeSet attrs) {

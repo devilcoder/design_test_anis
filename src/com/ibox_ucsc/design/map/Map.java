@@ -70,6 +70,8 @@ public class Map
 		graph.addNode(node);    
 		GRAPH_SIZE++;
 		
+		// maybe i have to make this node the source node for the routing 
+		
 	}	
 
 // Added Function for MapActivity Class
@@ -83,8 +85,16 @@ public class Map
 	
 	public static void removeLast() 
 	{ 
-		ArrayList<GraphNode> nodes = getNodes();
-		nodes.remove(nodes.size());
+		
+		/* 
+		 * must use graph.removeLast()
+		 * implement the graph.removeLast() function in the Graph Class
+		 */
+		
+	//	ArrayList<GraphNode> nodes = getNodes();	
+	//	nodes.remove(nodes.size());
+		
+		graph.removeLast();
 	}
 	
 ///////////////////////////	

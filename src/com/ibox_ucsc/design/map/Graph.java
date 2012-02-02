@@ -299,6 +299,14 @@ public class Graph
 	
 	}	
 	
+	// Added function fo MapActivity class / used in the Map class
+	
+	public void removeLast()
+	{
+		nodes.remove(nodes.size());
+	}
+	
+	
 }
 
 		

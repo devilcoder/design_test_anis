@@ -17,6 +17,9 @@
 package com.ibox_ucsc.design.ui;
 
 import com.ibox_ucsc.design.R;
+import com.ibox_ucsc.design.activity.MapActivity;
+import com.ibox_ucsc.design.map.GraphNode;
+import com.ibox_ucsc.design.map.Map;
 import com.ibox_ucsc.design.provider.ScheduleContract.Sessions;
 import com.ibox_ucsc.design.provider.ScheduleContract.Vendors;
 import com.ibox_ucsc.design.ui.phone.SessionDetailActivity;
@@ -28,10 +31,18 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 import android.widget.TextView;
+import android.widget.Toast;
+
+
+
+
 
 /**
  * An activity that shows session and sandbox search results. This activity can be either single
@@ -39,6 +50,10 @@ import android.widget.TextView;
  * {@link BaseMultiPaneActivity} offers, so we inherit from it instead of
  * {@link BaseSinglePaneActivity}.
  */
+
+// TODO: must modify this class to include our DirectoryActivity class + RouteActivity class
+
+
 public class SearchActivity extends BaseMultiPaneActivity {
 
     public static final String TAG_SESSIONS = "sessions";
@@ -51,8 +66,25 @@ public class SearchActivity extends BaseMultiPaneActivity {
 
     private SessionsFragment mSessionsFragment;
     private VendorsFragment mVendorsFragment;
-
-    @Override
+    
+     
+    
+    
+    ///////////////////////////
+    // 
+    //  data variables needed for the Routing Activity
+    //
+    ///////////////////////////
+    
+    private GraphNode source;
+	private GraphNode destination;
+//	private AutoCompleteTextView textViewSource;
+//	private AutoCompleteTextView textViewDestination;
+//	private Button btnSearch;
+	
+		
+    
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -65,12 +97,47 @@ public class SearchActivity extends BaseMultiPaneActivity {
         final CharSequence title = getString(R.string.title_search_query, mQuery);
         getActivityHelper().setActionBarTitle(title);
 
+        
+        /*
         mTabHost = (TabHost) findViewById(android.R.id.tabhost);
         mTabWidget = (TabWidget) findViewById(android.R.id.tabs);
         mTabHost.setup();
 
         setupSessionsTab();
         setupVendorsTab();
+        
+        */
+        
+        
+        // add the RouteActivity onCreate() implementation
+        
+//        String[] database = Map.getDatabase(Map.DATABASE_PERSON + Map.DATABASE_ROOM);
+//    	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, 
+//    			android.R.layout.simple_dropdown_item_1line, database);
+    	
+//    	btnSearch = (Button) findViewById(R.id.btnSearchRoute);
+//    	btnSearch.setOnClickListener(this);
+//    	textViewSource = (AutoCompleteTextView) findViewById(R.id.editSource); 
+//    	textViewSource.setAdapter(adapter);
+//    	textViewDestination = (AutoCompleteTextView) findViewById(R.id.editDestination);
+//    	textViewDestination.setAdapter(adapter); 
+    	
+    	source = Map.getRoutingSource();
+    	destination = Map.getRoutingDestination();
+    	
+    	if (mQuery.length() > 0)
+    		getActivityHelper().setActionBarTitle(title);
+
+//    	if (source.person.length() > 0) 
+//    		textViewSource.setText(source.person);
+//    	else
+//    		textViewSource.setText(source.room);
+    //	
+//    	if (destination.person.length() > 0) 
+//    		textViewDestination.setText(destination.person); 
+//    	else 
+//            textViewDestination.setText(destination.room);
+
     }
 
     @Override
@@ -92,10 +159,23 @@ public class SearchActivity extends BaseMultiPaneActivity {
         final CharSequence title = getString(R.string.title_search_query, mQuery);
         getActivityHelper().setActionBarTitle(title);
 
-        mTabHost.setCurrentTab(0);
+        
+   //     mTabHost.setCurrentTab(0);
 
-        mSessionsFragment.reloadFromArguments(getSessionsFragmentArguments());
-        mVendorsFragment.reloadFromArguments(getVendorsFragmentArguments());
+   //     mSessionsFragment.reloadFromArguments(getSessionsFragmentArguments());
+   //     mVendorsFragment.reloadFromArguments(getVendorsFragmentArguments());
+    
+         
+		if (mQuery.length() == 0) 
+			Toast.makeText(this, "Please input destination", Toast.LENGTH_SHORT).show();
+		else 
+		{
+			Map.setRoutingSource(Map.searchDetail(mQuery.toString()));
+			Map.setRoutingDestination(Map.searchDetail(mQuery.toString()));
+		}
+		Map.enableRouting();
+		startActivity(new Intent(this, com.ibox_ucsc.design.activity.MapActivity.class));
+    
     }
 
     /**

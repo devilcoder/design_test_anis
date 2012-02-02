@@ -29,11 +29,14 @@ public class RouteActivity extends Activity implements OnClickListener
 	{ 
 		// TODO: must substitute this code with buttons on the layout
 		
+/*
+		
 		super.onCreate(savedInstanceState); 
 	//	setContentView(R.layout.route);
 	//	setContentView(R.layout.route);
 		String[] database = Map.getDatabase(Map.DATABASE_PERSON + Map.DATABASE_ROOM);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, database);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, 
+				android.R.layout.simple_dropdown_item_1line, database);
 		btnSearch = (Button) findViewById(R.id.btnSearchRoute);
 		btnSearch.setOnClickListener(this);
 		textViewSource = (AutoCompleteTextView) findViewById(R.id.editSource); 
@@ -42,7 +45,7 @@ public class RouteActivity extends Activity implements OnClickListener
 		textViewDestination.setAdapter(adapter); 
 		source = Map.getRoutingSource();
 		destination = Map.getRoutingDestination();
-		
+	
 		if (source.person.length() > 0) 
 			textViewSource.setText(source.person);
 		else
@@ -52,6 +55,8 @@ public class RouteActivity extends Activity implements OnClickListener
 			textViewDestination.setText(destination.person); 
 		else 
             textViewDestination.setText(destination.room);
+            
+*/           
 	}
 	@Override
 	

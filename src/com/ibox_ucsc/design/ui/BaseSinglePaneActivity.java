@@ -26,7 +26,7 @@ import android.support.v4.app.Fragment;
  * A {@link BaseActivity} that simply contains a single fragment. The intent used to invoke this
  * activity is forwarded to the fragment as arguments during fragment instantiation. Derived
  * activities should only need to implement
- * {@link com.google.android.apps.iosched.ui.BaseSinglePaneActivity#onCreatePane()}.
+ * {@link com.ibox_ucsc.design.ui.BaseSinglePaneActivity#onCreatePane()}.
  */
 public abstract class BaseSinglePaneActivity extends BaseActivity {
     private Fragment mFragment;

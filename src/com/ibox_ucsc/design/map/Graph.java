@@ -7,8 +7,8 @@ import com.ibox_ucsc.design.util.Util;
 
 public class Graph 
 {
-	public static final String NODES_FILE = "/sdcard/wpirl/map/nodes.txt";
-	public static final String EDGES_FILE = "/sdcard/wpirl/map/edges.txt";
+	public static final String NODES_FILE = "/sdcard/matchpoints/map/ass_nodes.txt";
+	public static final String EDGES_FILE = "/sdcard/matchpoints/map/ass_edges.txt";
 	
 	private ArrayList<GraphNode> nodes;
 	

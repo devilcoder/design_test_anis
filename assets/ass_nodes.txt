@@ -1,0 +1,43 @@
+
+1	157	35	cubicle
+2	344	35	cubicle
+3	540	35	cubicle
+4	1411	0	corridor
+5	1148	288	room	A-1	Jeux Echecs
+6	1411	288	corridor
+7	1628	288	room	J-1	Jama3 Hommes
+8	1030	467	room	WC-1	WC Hommes
+9	1316	467	corridor
+10	1316	534	corridor
+11	1422	534	corridor
+12	1641	534	room	J-2	Jama3 Femmes
+13	921	687	room	C-BD	Cafe Back Door
+14	1316	687	corridor
+15	1316	742	corridor
+16	1641	742	room	H-1	Houssein
+17	1084	940	room	Cafe
+18	1316	940	corridor
+19	157	1385	cubicle	Grande Salle
+20	344	1385	cubicle	Grande Salle
+21	540	1385	cubicle	Grande Salle
+22	833	1385	corridor
+23	1316	1457	corridor
+24	1316	1457	corridor
+25	1641	1457	room	Salle 1
+26	1316	1815	corridor
+27	1641	1815	cubicle	Salle 2
+28	486	1976	room	Biblio
+29	833	1976	corridor
+30	1641	2140	cubicle	Salle 2
+31	486	2524	room	Petite Salle
+32	833	2524	corridor
+33	1641	2580	cubicle	Salle 3
+34	486	2803	room	WC Femmes
+35	833	2803	corridor
+36	1316	2913	corridor
+37	1641	2913	cubicle	Salle 3
+38	486	3076	room	Bureau Siham
+39	833	3176	corridor
+40	1316	3176	corridor
+41	1641	3176	room	9bar
+42	833	3415	corridor

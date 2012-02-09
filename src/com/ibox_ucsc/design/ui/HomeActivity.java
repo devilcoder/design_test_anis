@@ -32,6 +32,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.ibox_ucsc.design.positioning.Positioning;
+import com.ibox_ucsc.design.map.Map;
 /**
  * Front-door {@link Activity} that displays high-level features the schedule application offers to
  * users. Depending on whether the device is a phone or an Android 3.0+ tablet, different layouts
@@ -58,6 +60,10 @@ public class HomeActivity extends BaseActivity {
         setContentView(R.layout.activity_home);
         getActivityHelper().setupActionBar(null, 0);
 
+        // initializing the Map and Positioning classes 
+        initialize();
+        
+        
         FragmentManager fm = getSupportFragmentManager();
 
         mTagStreamFragment = (TagStreamFragment) fm.findFragmentById(R.id.fragment_tag_stream);
@@ -110,6 +116,14 @@ public class HomeActivity extends BaseActivity {
         getActivityHelper().setRefreshActionButtonCompatState(refreshing);
     }
 
+    private void initialize()
+    {
+    	Map.initialize();
+    // Positioning.initialize();
+    }
+    
+    
+    
     /**
      * A non-UI fragment, retained across configuration changes, that updates its activity's UI
      * when sync status changes.

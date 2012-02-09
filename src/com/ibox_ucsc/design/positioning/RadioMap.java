@@ -1,6 +1,6 @@
 package com.ibox_ucsc.design.positioning; 
 
-import com.ibox_ucsc.design.map.Map;
+//import com.ibox_ucsc.design.map.Map;
 
 
 public class RadioMap 
@@ -8,8 +8,8 @@ public class RadioMap
 	public static final int RESOLUTION = 2; // 2 sample per meter int LEFT = 74;
 	public static final int LEFT = 74;
 	public static final int TOP = 188;
-	public static final int ROW = 94;
-	public static final int COL = 25;
+	public static final int ROW = 68; // 94;
+	public static final int COL = 38; // 25;
 		
 	public float[][] map; 
 	public String bssid;

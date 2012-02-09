@@ -5,7 +5,7 @@ import com.ibox_ucsc.design.util.Util;
 
 public class Architecture 
 {
-	public static final String WALLS_FILE = "/sdcard/wpirl/map/walls.txt";
+	public static final String WALLS_FILE = "/sdcard/matchpoints/map/ass_walls.txt";
 	public static final int ORIGIN_X = 74;
 	public static final int ORIGIN_Y = 188;
 	private ArrayList<Wall> walls;

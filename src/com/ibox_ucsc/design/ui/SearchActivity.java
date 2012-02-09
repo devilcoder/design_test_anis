@@ -16,24 +16,28 @@
 
 package com.ibox_ucsc.design.ui;
 
+
+import java.util.ArrayList;
+
 import com.ibox_ucsc.design.R;
 import com.ibox_ucsc.design.activity.MapActivity;
+
 import com.ibox_ucsc.design.map.GraphNode;
 import com.ibox_ucsc.design.map.Map;
+import com.ibox_ucsc.design.provider.ScheduleContract.SearchSuggest;
 import com.ibox_ucsc.design.provider.ScheduleContract.Sessions;
 import com.ibox_ucsc.design.provider.ScheduleContract.Vendors;
 import com.ibox_ucsc.design.ui.phone.SessionDetailActivity;
 import com.ibox_ucsc.design.ui.phone.VendorDetailActivity;
+import com.ibox_ucsc.design.util.Lists;
 
 import android.app.SearchManager;
+import android.content.ContentProviderOperation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
@@ -67,6 +71,7 @@ public class SearchActivity extends BaseMultiPaneActivity {
     private SessionsFragment mSessionsFragment;
     private VendorsFragment mVendorsFragment;
     
+    
      
     
     
@@ -97,24 +102,53 @@ public class SearchActivity extends BaseMultiPaneActivity {
         final CharSequence title = getString(R.string.title_search_query, mQuery);
         getActivityHelper().setActionBarTitle(title);
 
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) 
+        { 
+        	String query = intent.getStringExtra(SearchManager.QUERY); 
+        	Toast.makeText(this, "The QUERY: " + query, Toast.LENGTH_LONG).show();
+        } 
         
-        /*
+        
+  /*      
+        
         mTabHost = (TabHost) findViewById(android.R.id.tabhost);
         mTabWidget = (TabWidget) findViewById(android.R.id.tabs);
         mTabHost.setup();
 
         setupSessionsTab();
         setupVendorsTab();
+    */
         
-        */
+        final ArrayList<ContentProviderOperation> batch = Lists.newArrayList();
         
+   	 // Clear any existing suggestion words
+        batch.add(ContentProviderOperation.newDelete(SearchSuggest.CONTENT_URI).build());
+        
+        batch.add(ContentProviderOperation.newDelete(SearchSuggest.CONTENT_URI).build());
+        
+        batch.add(ContentProviderOperation.newInsert(SearchSuggest.CONTENT_URI)
+                .withValue(SearchManager.SUGGEST_COLUMN_TEXT_1, mQuery).build());
+        
+       
         
         // add the RouteActivity onCreate() implementation
         
-//        String[] database = Map.getDatabase(Map.DATABASE_PERSON + Map.DATABASE_ROOM);
-//    	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, 
+        String[] database = Map.getDatabase(Map.DATABASE_PERSON + Map.DATABASE_ROOM);
+//     	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, 
 //    			android.R.layout.simple_dropdown_item_1line, database);
-    	
+
+    // 	final ArrayList<ContentProviderOperation> batch = Lists.newArrayList();
+     	
+              
+        	if ((database[2].indexOf(mQuery) >= 0) || (database[1].indexOf(mQuery) >= 0)) 
+        	{
+                // Insert word as search suggestion
+                batch.add(ContentProviderOperation.newInsert(SearchSuggest.CONTENT_URI)
+                        .withValue(SearchManager.SUGGEST_COLUMN_TEXT_1, mQuery).build());
+             }
+            
+              
+           	
 //    	btnSearch = (Button) findViewById(R.id.btnSearchRoute);
 //    	btnSearch.setOnClickListener(this);
 //    	textViewSource = (AutoCompleteTextView) findViewById(R.id.editSource); 
@@ -122,12 +156,21 @@ public class SearchActivity extends BaseMultiPaneActivity {
 //    	textViewDestination = (AutoCompleteTextView) findViewById(R.id.editDestination);
 //    	textViewDestination.setAdapter(adapter); 
     	
-    	source = Map.getRoutingSource();
-    	destination = Map.getRoutingDestination();
+    	
     	
     	if (mQuery.length() > 0)
     		getActivityHelper().setActionBarTitle(title);
 
+    	source = Map.getRoutingSource();
+    	Map.setRoutingDestination(Map.searchDetail(mQuery));
+		destination = Map.getRoutingDestination();
+
+    	if ((database[2].indexOf(mQuery) >= 0) || (database[1].indexOf(mQuery) >= 0)) 
+    	{	
+    		Map.setRoutingDestination(Map.searchDetail(mQuery));
+    		destination = Map.getRoutingDestination();
+    	}
+    	
 //    	if (source.person.length() > 0) 
 //    		textViewSource.setText(source.person);
 //    	else
@@ -138,12 +181,18 @@ public class SearchActivity extends BaseMultiPaneActivity {
 //    	else 
 //            textViewDestination.setText(destination.room);
 
+
+
+
+
+
     }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         getActivityHelper().setupSubActivity();
+        
 
         ViewGroup detailContainer = (ViewGroup) findViewById(R.id.fragment_container_search_detail);
         if (detailContainer != null && detailContainer.getChildCount() > 1) {
@@ -160,10 +209,10 @@ public class SearchActivity extends BaseMultiPaneActivity {
         getActivityHelper().setActionBarTitle(title);
 
         
-   //     mTabHost.setCurrentTab(0);
+    //  mTabHost.setCurrentTab(0);
 
-   //     mSessionsFragment.reloadFromArguments(getSessionsFragmentArguments());
-   //     mVendorsFragment.reloadFromArguments(getVendorsFragmentArguments());
+    //   mSessionsFragment.reloadFromArguments(getSessionsFragmentArguments());
+    //    mVendorsFragment.reloadFromArguments(getVendorsFragmentArguments());
     
          
 		if (mQuery.length() == 0) 

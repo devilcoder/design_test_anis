@@ -15,9 +15,9 @@
   limitations under the License.
   -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">Google I/O 2011</string>
+    <string name="app_name">Match Points</string>
 
-    <string name="description_logo">Google I/O 2011</string>
+    <string name="description_logo">Match Points</string>
     <string name="description_home">Home</string>
     <string name="description_search">Search</string>
     <string name="description_map">Map</string>

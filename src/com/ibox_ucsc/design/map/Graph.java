@@ -57,14 +57,14 @@ public class Graph
              */
 			String s = in.readln();
 			int id = Integer.valueOf(s.substring( 0, 3).trim());
-			int x = Integer.valueOf(s.substring( 4, 8).trim());
-			int y = Integer.valueOf(s.substring( 9, 13).trim());
-			String type = s.substring(14, 22).trim(); 
+			int x = Integer.valueOf(s.substring( 5, 11).trim());    // 4 - 8
+			int y = Integer.valueOf(s.substring( 12, 17).trim());  // 9 - 13
+			String type = s.substring(18, 28).trim();              // 14 - 22
 			int[] pos = {x, y};
 			String room = new String();
-			if (s.length() > 30) { room = s.substring(23, 31).trim(); }
+			if (s.length() > 30) { room = s.substring(30, 38).trim(); } // 23 - 31
 			String host = new String();
-			if (s.length() > 32) { host = s.substring(32, s.length()); }
+			if (s.length() > 40) { host = s.substring(41, s.length()); } // >30
 			
 			/*
 			 * Add the new nodes into the graph
@@ -90,14 +90,14 @@ public class Graph
 			     * the string by concatting different locations of the string
 			     */
 				String s = in.readln();
-				int id = Integer.valueOf(s.substring(0, 2).trim()); 
-				int size = Integer.valueOf(s.substring(3, 5).trim()); 
-				int start = 6;
+				int id = Integer.valueOf(s.substring(0, 3).trim()); 
+				int size = Integer.valueOf(s.substring(4, 7).trim()); 
+				int start = 8;   // 6;
 				int[] adjacent = new int[size];
 				for (int j = 0; j < size; j++) 
 				{
 					int k = Integer.valueOf(s.substring(start, start+2 ).trim()); 
-					start += 3;
+					start += 4;
 					adjacent[j] = k;
 				}
 			    nodes.get(id).adjacent = adjacent; // update this adjacent to the node

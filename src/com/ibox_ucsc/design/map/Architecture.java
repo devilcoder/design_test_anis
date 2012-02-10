@@ -18,9 +18,9 @@ public class Architecture
 		for (int i = 0; i < n; i++)
 		{
 			String s = in.readln();
-			float x1 = Float.valueOf(s.substring( 0, 8)); 
-			float y1 = Float.valueOf(s.substring( 8, 16)); 
-			float x2 = Float.valueOf(s.substring(16, 24));
+			float x1 = Float.valueOf(s.substring( 0, 7)); 
+			float y1 = Float.valueOf(s.substring( 8, 15)); 
+			float x2 = Float.valueOf(s.substring(16, 23));
 			float y2 = Float.valueOf(s.substring(24, 32));
 			int[] p1 = Util.translate(Map.toMapScale(x1, y1), ORIGIN_X, ORIGIN_Y); 
 			int[] p2 = Util.translate(Map.toMapScale(x2, y2), ORIGIN_X, ORIGIN_Y);

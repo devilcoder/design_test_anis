@@ -119,7 +119,8 @@ public class HomeActivity extends BaseActivity {
     private void initialize()
     {
     	Map.initialize();
-    // Positioning.initialize();
+    	Positioning.initialize();
+  
     }
     
     

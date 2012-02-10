@@ -17,10 +17,15 @@ public class Positioning
 	private static Object wifiLock = new Object();
 	private static float[][] pdf = new float[RadioMap.ROW][RadioMap.COL];
 	
-	public static void initialize() 
-	{
+	/*
+	 * 	initializing the wifi and inertial navigation systems 
+	 */
+	
+	public static void initialize()   
+	{	
+		
 		wifi = new WifiPositioning();
-		ins = new InertialNavigationSystem();
+		ins = new InertialNavigationSystem();	
 	}
 	
 	/*

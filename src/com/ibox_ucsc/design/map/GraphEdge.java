@@ -1,14 +1,15 @@
 package com.ibox_ucsc.design.map;
 
+//import com.ibox_ucsc.design.util.Util;
+
 // import com.wpirl.positioning.RadioMap;
 
 public class GraphEdge{
 	
-	public final GraphNode target;
-    public final double weight;
+	public GraphNode target;
+    public double weight;
 
-    
-    public final adjacents [] endpoints;
+    public adjacents [] endpoints;
     
    
     public GraphEdge(GraphNode argTarget, double argWeight)
@@ -26,7 +27,7 @@ public class GraphEdge{
 		this.target = new GraphNode();
 		this.weight  = 0;
 		this.endpoints = new adjacents[1]; 
-		this.endpoints[0].id = 0;
+//		this.endpoints[0].id = 0;
     }
         
     public GraphEdge(GraphEdge edge)
@@ -34,6 +35,7 @@ public class GraphEdge{
     	this.target  = new GraphNode(edge.target);
     	this.weight = edge.weight;
     	this.endpoints = edge.endpoints; 
+    	//Util.copyArray(edge.endpoints);
     }
   
     
@@ -47,6 +49,10 @@ public class GraphEdge{
     		//node = new GraphNode();
     	}
     	
+    	public adjacents(int i)
+    	{
+    		id = i;
+    	}
     }
 }
 

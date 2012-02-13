@@ -34,6 +34,8 @@ import android.webkit.WebViewClient;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+import com.ibox_ucsc.design.view.MapView;
+
 /**
  * A {@link WebView}-based fragment that shows Google Realtime Search results for a given query,
  * provided as the {@link TagStreamFragment#EXTRA_QUERY} extra in the fragment arguments. If no
@@ -48,7 +50,7 @@ public class TagStreamFragment extends Fragment {
     public static final String CONFERENCE_HASHTAG = "#io2011";
 
     private String mSearchString;
-    private WebView mWebView;
+    private MapView mMapView;
     private View mLoadingSpinner;
 
     @Override
@@ -76,10 +78,10 @@ public class TagStreamFragment extends Fragment {
         root.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT,
                 ViewGroup.LayoutParams.FILL_PARENT));
 
-        mLoadingSpinner = root.findViewById(R.id.loading_spinner);
-        mWebView = (WebView) root.findViewById(R.id.webview);
-        mWebView.setWebViewClient(mWebViewClient);
-
+ //       mLoadingSpinner = root.findViewById(R.id.loading_spinner);
+   //     mMapView = (MapView) root.findViewById(R.id.map_floorplan_img);
+     //   mWebView.setWebViewClient(mWebViewClient);
+/*
         mWebView.post(new Runnable() {
             public void run() {
                 mWebView.getSettings().setJavaScriptEnabled(true);
@@ -95,14 +97,15 @@ public class TagStreamFragment extends Fragment {
                 }
             }
         });
+ */       
 
         return root;
     }
 
     public void refresh() {
-        mWebView.reload();
+     //   mWebView.reload();
     }
-
+/*
     private WebViewClient mWebViewClient = new WebViewClient() {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -129,4 +132,6 @@ public class TagStreamFragment extends Fragment {
             return true;
         }
     };
+*/    
+    
 }

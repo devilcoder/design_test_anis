@@ -15,6 +15,7 @@ import android.graphics.PathDashPathEffect;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
+import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.View;
 import com.ibox_ucsc.design.R;
@@ -42,12 +43,13 @@ public class MapView extends View
 	private Paint paintCompass;
 	private Paint paintFan;
 
-	public MapView(Context context) 
+	public MapView(Context context, AttributeSet attrs) 
 	{ 
-		super(context);
+		super(context, attrs);
 		setFocusable(true);
 		map = BitmapFactory.decodeResource(getResources(), R.drawable.map_img); 
-		x = map.getWidth()/2 - 200;
+		//x = map.getWidth()/2 - 200;
+		x = map.getWidth()/2;
 		y = map.getHeight()/2;
 		paintPath = new Paint(Paint.ANTI_ALIAS_FLAG); 
 		paintPath.setStyle(Paint.Style.STROKE);

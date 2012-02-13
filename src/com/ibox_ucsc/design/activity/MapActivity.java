@@ -44,10 +44,10 @@ public class MapActivity extends Activity implements SensorEventListener
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
 	{ 
-		super.onCreate(savedInstanceState);
-		view = new MapView(this); 
-		setContentView(view);
-		setContentView(view);
+	//	super.onCreate(savedInstanceState);
+	//	view = new MapView(this); 
+	//	setContentView(view);
+	//	setContentView(view);
 		
 		mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE); 
 		mWifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
@@ -189,7 +189,7 @@ public class MapActivity extends Activity implements SensorEventListener
      * when a signal is received from the hardware
      */
 	
-	private class WifiReceiver extends BroadcastReceiver 
+	public class WifiReceiver extends BroadcastReceiver 
 	{
 		public void onReceive(Context c, Intent intent) 
 		{

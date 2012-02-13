@@ -78,6 +78,12 @@ public class ActivityHelper {
             case R.id.menu_search:
                 goSearch();
                 return true;
+            case R.id.menu_map:
+            	
+            	return true;
+            case R.id.menu_share:
+            	
+            	return true;
         }
         return false;
     }
@@ -336,3 +342,7 @@ public class ActivityHelper {
         }
     }
 }
+
+
+// add 
+

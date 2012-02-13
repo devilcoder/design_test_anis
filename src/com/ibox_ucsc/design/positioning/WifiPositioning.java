@@ -6,7 +6,7 @@ import com.ibox_ucsc.design.util.Util;
 public class WifiPositioning 
 {
 	public static final int WAP_NUMBER = 1; // 5 wireless access points 
-	public static final int WAP_COUNT = 4;
+	public static final int WAP_COUNT = 0;
 	public static final int VALUE_LENGTH = 8; // 6 digits + minus sign '-' + 	decimal point '.'
 	public static final String SIMULATION_FILE = "/sdcard/matchpoints/simulation_model/prop_output_ass"; 
 	public static final int MAX_COUNT = 5;

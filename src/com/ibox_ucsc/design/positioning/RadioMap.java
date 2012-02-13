@@ -6,8 +6,8 @@ import com.ibox_ucsc.design.map.Map;
 public class RadioMap 
 {
 	public static final int RESOLUTION = 2; // 2 sample per meter int LEFT = 74;
-	public static final int LEFT = 74;   // origin x (pixels)
-	public static final int TOP = 188;   // origin y (pixels)
+	public static final int LEFT = 50;   // origin x (pixels)   // 74;
+	public static final int TOP = 100;   // origin y (pixels)   //188;
 	public static final int ROW = 38; // 94;
 	public static final int COL = 68; // 25;
 		

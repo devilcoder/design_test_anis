@@ -35,6 +35,8 @@ import android.webkit.WebViewClient;
 
 import java.util.regex.Pattern;
 
+import com.ibox_ucsc.design.view.MapView;
+
 /**
  * A fragment containing a {@link WebView} pointing to the I/O announcements URL.
  */
@@ -44,7 +46,8 @@ public class BulletinFragment extends Fragment {
     private static final String BULLETIN_URL =
             "http://www.google.com/events/io/2011/mobile_announcements.html";
 
-    private WebView mWebView;
+  //  private WebView mWebView;
+    private MapView mMapView;
     private View mLoadingSpinner;
 
     @Override
@@ -65,9 +68,9 @@ public class BulletinFragment extends Fragment {
         root.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT,
                 ViewGroup.LayoutParams.FILL_PARENT));
 
-        mLoadingSpinner = root.findViewById(R.id.loading_spinner);
-        mWebView = (WebView) root.findViewById(R.id.webview);
-        mWebView.setWebViewClient(mWebViewClient);
+  //      mLoadingSpinner = root.findViewById(R.id.loading_spinner);
+  //      mMapView = (MapView) root.findViewById(R.id.map_floorplan_img);
+ /*      mMapView.setWebViewClient(mWebViewClient);
 
         mWebView.post(new Runnable() {
             public void run() {
@@ -76,7 +79,7 @@ public class BulletinFragment extends Fragment {
                 mWebView.loadUrl(BULLETIN_URL);
             }
         });
-
+*/
         return root;
     }
 
@@ -89,25 +92,25 @@ public class BulletinFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_refresh) {
-            mWebView.reload();
+          //mWebView.reload();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
+/*
     private WebViewClient mWebViewClient = new WebViewClient() {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
             mLoadingSpinner.setVisibility(View.VISIBLE);
-            mWebView.setVisibility(View.INVISIBLE);
+            mMapView.setVisibility(View.INVISIBLE);
         }
 
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
             mLoadingSpinner.setVisibility(View.GONE);
-            mWebView.setVisibility(View.VISIBLE);
+            mMapView.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -121,4 +124,6 @@ public class BulletinFragment extends Fragment {
             return true;
         }
     };
+*/    
+    
 }
